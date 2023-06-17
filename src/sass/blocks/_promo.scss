@@ -35,6 +35,11 @@
         width: 101px;
         text-align: center;
         color: #FFFFFF;
+        transform: scale(1);
+        :hover{
+            transition-duration: .5s;
+            transform: scale(1.2);
+        }
         img{
             display: block;
             margin: 0 auto;

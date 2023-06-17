@@ -12,6 +12,11 @@
         max-width: 273px;
         align-items: center;
         flex-direction: column;
+        transform: scale(1);
+        :hover{
+            transition-duration: .5s;
+            transform: scale(1.2);
+        }
     }
     &__subtitle{
         margin-top: 35px;

@@ -1,0 +1,30 @@
+.carousel{
+    padding: 83px 0 81px 0;
+    margin: 0 auto;
+    &__inner{
+        display: flex;
+    }
+    &__slides{
+        width: 750px;
+        height: 580px;
+        &-prev, &-next{
+            margin: 40px;
+            margin-top: calc(338px - 83px);
+            width: 31px;
+            height: 50px;
+            transform: scale(1);
+            &:hover{
+                transition: 0.2s;
+                transform: scale(1.2);
+            }
+        }
+
+    }
+    &__slide {
+        width: 100%;
+        height: auto;
+        &_animated{
+            animation:animationSlides 2s;
+        }
+      }
+}
