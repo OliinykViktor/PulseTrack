@@ -6,13 +6,17 @@ const slides = document.querySelectorAll('.carousel__slide'),
     next = document.querySelector('.carousel__slides-next');
 
 function showItem(elem) {
-    elem.classList.add("show");
-    elem.classList.remove("hide"); 
+    if (elem) {
+        elem.classList.add("show");
+        elem.classList.remove("hide");
+    }
 };
 
 function hideItem(elem) {
-    elem.classList.add("hide");
-    elem.classList.remove("show"); 
+    if (elem) {
+        elem.classList.add("hide");
+        elem.classList.remove("show");
+    }
 };
 showSlides(slideIndex=1);
 
@@ -50,11 +54,32 @@ window.addEventListener('scroll', ()=>{
 });
 
 const catalogeTabs = document.querySelector('.cataloge__tabs'),
-    catalogeTabItems = document.querySelectorAll('.cataloge__tab');
+    contents = document.querySelectorAll('.cataloge__content'),
+    tabs = document.querySelectorAll('.cataloge__tab');
 
-catalogeTabs.addEventListener('click', (e) => {
-  const target = e.target;
-  console.log(e.target.index);
-  catalogeTabItems.forEach(tab => tab.classList.remove('cataloge__tab_active'));
-  target.parentNode.classList.add('cataloge__tab_active');
+function handleTabClick(event) {
+    const target = event.target;
+    const currentTarget = event.currentTarget;
+
+    tabs.forEach(tab => tab.classList.remove('cataloge__tab_active'));
+    contents.forEach(content => content.classList.remove('cataloge__content_active'));
+
+    const tabIndex = Array.from(tabs).indexOf(currentTarget);
+    target.parentNode.classList.add('cataloge__tab_active');
+
+    const selectedContent = contents[tabIndex];
+    currentTarget.classList.add('cataloge__tab_active');
+    selectedContent.classList.add('cataloge__content_active');
+    }
+
+    tabs.forEach(tab => {
+    tab.addEventListener('click', handleTabClick);
 });
+
+const cardLink = document.querySelector('.cataloge__card__link');
+
+cardLink.addEventListener('click', (event)=>{
+    event.preventDefault;
+    const currentTarget = event.currentTarget
+    console.log(currentTarget);
+})
