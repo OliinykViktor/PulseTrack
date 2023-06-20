@@ -1,22 +1,20 @@
 
-// console.log(data);
-
 const slides = document.querySelectorAll('.carousel__slide'),
     prev = document.querySelector('.carousel__slides-prev'),
     next = document.querySelector('.carousel__slides-next');
 
 function showItem(elem) {
-    if (elem) {
+
         elem.classList.add("show");
         elem.classList.remove("hide");
-    }
+
 };
 
 function hideItem(elem) {
-    if (elem) {
+
         elem.classList.add("hide");
         elem.classList.remove("show");
-    }
+
 };
 showSlides(slideIndex=1);
 
@@ -75,11 +73,3 @@ function handleTabClick(event) {
     tabs.forEach(tab => {
     tab.addEventListener('click', handleTabClick);
 });
-
-const cardLink = document.querySelector('.cataloge__card__link');
-
-cardLink.addEventListener('click', (event)=>{
-    event.preventDefault;
-    const currentTarget = event.currentTarget
-    console.log(currentTarget);
-})
